@@ -1,0 +1,24 @@
+{
+  "name": "conversor-de-moedas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Conversor de moedas com cotações ao vivo, cache offline e histórico local",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node --test",
+    "test:watch": "node --test --watch"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "css",
+    "cambio",
+    "api-rest"
+  ],
+  "author": "Leonardo Fernandes Carrilho",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
