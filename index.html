@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Câmbio Hoje — conversor de moedas com cotação ao vivo</title>
+    <meta
+      name="description"
+      content="Converta dólar, euro, libra, iene e outras moedas com cotação ao vivo, cache offline e histórico local. Feito em HTML, CSS e JavaScript puro."
+    />
+    <meta name="theme-color" content="#0d1f3c" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="./" aria-label="Câmbio Hoje — início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 8h13l-3-3M20 16H7l3 3" />
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>Câmbio Hoje</strong>
+            <small>conversor de moedas</small>
+          </span>
+        </a>
+
+        <div class="header-meta">
+          <span class="status" id="status" role="status">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="status-texto">carregando cotações</span>
+          </span>
+          <button class="icon-button" type="button" id="btn-atualizar" aria-label="Atualizar cotações" title="Atualizar cotações">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12a9 9 0 1 1-3-6.7" />
+              <path d="M21 3v6h-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero wrap">
+        <p class="eyebrow">Câmbio comercial</p>
+        <h1>Converta com a cotação do momento.</h1>
+        <p class="hero-lead">
+          Nove moedas, atualização automática e um cache local que mantém a última
+          cotação disponível mesmo sem internet. Sem cadastro e sem chave de API.
+        </p>
+        <p class="hero-meta">
+          <span id="atualizado">Buscando a cotação mais recente…</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <a href="https://economia.awesomeapi.com.br" rel="noopener">fonte: AwesomeAPI</a>
+        </p>
+      </section>
+
+      <section class="wrap" aria-labelledby="titulo-conversao">
+        <form id="form-conversao" class="converter" novalidate>
+          <div class="converter-head">
+            <div>
+              <h2 id="titulo-conversao">Quanto vale?</h2>
+              <p>O resultado muda enquanto você digita.</p>
+            </div>
+            <span class="chip" id="fonte-chip">cotação ao vivo</span>
+          </div>
+
+          <div class="converter-grid">
+            <div class="converter-field">
+              <label for="valor">Valor</label>
+              <div class="valor-input">
+                <span id="simbolo-origem" aria-hidden="true">US$</span>
+                <input
+                  id="valor"
+                  type="text"
+                  inputmode="decimal"
+                  autocomplete="off"
+                  value="1.000,00"
+                  aria-describedby="valor-ajuda"
+                />
+              </div>
+              <small id="valor-ajuda">Use ponto para milhar e vírgula para centavos.</small>
+            </div>
+
+            <div class="moedas-grid">
+              <div class="converter-field">
+                <label for="moeda-origem">De</label>
+                <select id="moeda-origem" name="origem"></select>
+              </div>
+
+              <button class="swap" type="button" id="btn-inverter" aria-label="Inverter moedas de origem e destino">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 4v13M3 8l4-4 4 4M17 20V7M21 16l-4 4-4-4" />
+                </svg>
+              </button>
+
+              <div class="converter-field">
+                <label for="moeda-destino">Para</label>
+                <select id="moeda-destino" name="destino"></select>
+              </div>
+            </div>
+          </div>
+
+          <div class="result" aria-live="polite">
+            <p class="result-label" id="resultado-legenda">1.000,00 dólares americanos valem</p>
+            <p class="result-value" id="resultado">R$ 0,00</p>
+            <p class="result-rate">
+              <span id="taxa-unitária">1 USD = R$ 0,00</span>
+              <span class="sep" aria-hidden="true">·</span>
+              <span id="taxa-atualizada">—</span>
+            </p>
+          </div>
+
+          <div class="converter-actions">
+            <button class="btn btn-primary" type="submit">Converter e salvar</button>
+            <button class="btn btn-ghost" type="button" id="btn-copiar">Copiar resultado</button>
+          </div>
+
+          <p class="offline-notice" id="aviso-fonte" hidden>
+            Sem conexão com a API: exibindo a última cotação salva neste navegador.
+          </p>
+        </form>
+      </section>
+
+      <section class="wrap rates" aria-labelledby="titulo-painel">
+        <div class="section-head">
+          <div>
+            <h2 id="titulo-painel">Painel do dia</h2>
+            <p>Cotação de 1 unidade em reais. Clique em uma moeda para usá-la na conversão.</p>
+          </div>
+          <span class="muted" id="painel-atualizado"></span>
+        </div>
+
+        <div class="rates-grid" id="painel-moedas">
+          <p class="empty">Carregando cotações…</p>
+        </div>
+      </section>
+
+      <section class="wrap history-section" aria-labelledby="titulo-historico">
+        <div class="section-head inline">
+          <div>
+            <h2 id="titulo-historico">Conversões recentes</h2>
+            <p>Salvas apenas neste navegador, sem enviar nada para servidores.</p>
+          </div>
+          <button class="btn btn-small btn-ghost" type="button" id="btn-limpar-historico">
+            Limpar
+          </button>
+        </div>
+
+        <div class="history-card">
+          <p class="empty" id="historico-vazio">Nenhuma conversão salva ainda.</p>
+          <ul class="history-list" id="historico"></ul>
+        </div>
+      </section>
+
+      <section class="wrap about" id="como-funciona" aria-labelledby="titulo-como">
+        <h2 id="titulo-como">Como funciona</h2>
+        <div class="about-grid">
+          <article>
+            <h3>Cotação em cascata</h3>
+            <p>
+              A API entrega cada moeda em relação ao real. Qualquer outro par, como
+              dólar para euro, é obtido dividindo as duas taxas — sem depender de
+              uma cotação específica para cada combinação.
+            </p>
+          </article>
+          <article>
+            <h3>Cache de 15 minutos</h3>
+            <p>
+              As cotações ficam salvas no <code>localStorage</code> com data e hora.
+              Se a API falhar ou você estiver offline, o conversor continua
+              funcionando com a última tabela conhecida.
+            </p>
+          </article>
+          <article>
+            <h3>Nada de chave secreta</h3>
+            <p>
+              A AwesomeAPI é pública e não exige token. O projeto é 100% estático:
+              não há back-end, banco ou variável de ambiente para configurar.
+            </p>
+          </article>
+          <article>
+            <h3>Valores de referência</h3>
+            <p>
+              Na primeira visita sem internet, o app usa uma tabela embutida e avisa
+              que os valores são de referência, nunca apresentando dados antigos como
+              se fossem atuais.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>
+          Feito por
+          <a href="https://github.com/LeonardoCarrilho" rel="noopener">Leonardo Carrilho</a>
+          · HTML, CSS e JavaScript puro.
+        </p>
+        <p class="muted">Cotações informativas, sem spread bancário ou IOF.</p>
+      </div>
+    </footer>
+
+    <p class="sr-only" id="anuncio" role="status" aria-live="polite"></p>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
