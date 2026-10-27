@@ -862,3 +862,22 @@ code {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Mesa de câmbio: formulário lateral e resultado em destaque. */
+:root { --radius: 6px; --radius-sm: 4px; }
+body { background: var(--bg); }
+body::before, .converter::after { display: none; }
+.hero h1 { max-width: 22ch; font-weight: 600; }
+.converter { background: #102b28; border-top: 5px solid #b8e56b; box-shadow: none; }
+.result-value { color: #d4f69b; overflow-wrap: anywhere; }
+.converter-field > label, .converter-field small, .converter-head p { color: #bdcfc8; }
+.brand-mark { background: #102b28; border-radius: 4px; box-shadow: none; }
+.rate-card { border-radius: 4px; box-shadow: none; border-top: 3px solid var(--line-strong); }
+@media (min-width: 1000px) {
+ #conteudo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 2rem; width: min(1140px, calc(100% - 2.5rem)); margin: 2.5rem auto 0; }
+ #conteudo > .wrap { width: 100%; min-width: 0; }
+ #conteudo > .hero { align-self: center; padding: 1rem 1.5rem 1rem 0; }
+ #conteudo > .rates, #conteudo > .history-section, #conteudo > .about { grid-column: 1 / -1; }
+ .converter-grid { grid-template-columns: 1fr; }
+}

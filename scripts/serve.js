@@ -4,7 +4,7 @@
  */
 import { createServer } from "node:http";
 import { createReadStream, existsSync, statSync } from "node:fs";
-import { extname, join, normalize, resolve } from "node:path";
+import { extname, join, normalize, resolve, relative, isAbsolute } from "node:path";
 
 const raiz = resolve(import.meta.dirname, "..");
 const porta = Number(process.env.PORT) || 4174;
@@ -20,10 +20,19 @@ const tipos = {
 };
 
 createServer((req, res) => {
-  const url = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
+  let url;
+  try {
+    url = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
+    if (url.includes("\0")) throw new URIError("Invalid path");
+  } catch {
+    res.writeHead(400, { "content-type": "text/plain; charset=utf-8" });
+    res.end("400 — endereço inválido");
+    return;
+  }
   const caminho = normalize(join(raiz, url === "/" ? "index.html" : url));
 
-  if (!caminho.startsWith(raiz) || !existsSync(caminho) || statSync(caminho).isDirectory()) {
+  const relativo = relative(raiz, caminho);
+  if (relativo.startsWith("..") || isAbsolute(relativo) || !existsSync(caminho) || statSync(caminho).isDirectory()) {
     res.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
     res.end("404 — arquivo não encontrado");
     return;
@@ -33,7 +42,9 @@ createServer((req, res) => {
     "content-type": tipos[extname(caminho)] ?? "application/octet-stream",
     "cache-control": "no-cache",
   });
-  createReadStream(caminho).pipe(res);
+  const stream = createReadStream(caminho);
+  stream.on("error", () => res.destroy());
+  stream.pipe(res);
 }).listen(porta, () => {
   console.log(`Câmbio Hoje disponível em http://localhost:${porta}`);
 });
