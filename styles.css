@@ -942,3 +942,8 @@ input, select, textarea { max-width: 100%; }
 }
 
 :root { --mint-soft:#e0f7ef; --red:#b93832; --red-soft:#fdeaea; }
+
+/* Wide fallback fonts must not force quote cards outside narrow screens. */
+.rate-card { grid-template-columns:minmax(0,1fr); }
+.rate-value { overflow-wrap:anywhere; }
+@media(max-width:380px) { .rates-grid { grid-template-columns:minmax(0,1fr); } }

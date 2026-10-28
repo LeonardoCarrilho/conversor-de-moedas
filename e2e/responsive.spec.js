@@ -31,3 +31,16 @@ for (const width of [320, 390, 768, 1440]) {
     expect(await focused.evaluate(el => getComputedStyle(el).outlineStyle)).not.toBe("none");
   });
 }
+
+test("cotações de referência cabem com fonte alternativa em 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 900 });
+  await page.route("https://economia.awesomeapi.com.br/**", route => route.abort());
+  await page.goto("./");
+  await expect(page.locator(".rate-card").first()).toBeVisible();
+  await page.addStyleTag({ content: ":root { --font: Verdana, sans-serif; --mono: monospace; }" });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+  for (const card of await page.locator(".rate-card").all()) {
+    const box = await card.boundingBox();
+    expect(box.x + box.width).toBeLessThanOrEqual(320);
+  }
+});
