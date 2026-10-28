@@ -33,4 +33,3 @@ test("URLs inválidas não encerram o servidor e caminhos externos são recusado
     await once(child, "exit");
   }
 });
-
