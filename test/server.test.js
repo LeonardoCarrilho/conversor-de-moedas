@@ -25,6 +25,7 @@ test("URLs inválidas não encerram o servidor e caminhos externos são recusado
     assert.equal(await request("/%ZZ"), 400);
     assert.equal(await request("/%00"), 400);
     assert.equal(await request("/..%2fpackage.json"), 404);
+    for (const file of ["/.git/config", "/.env", "/package.json", "/scripts/serve.js", "/node_modules/vite/package.json"]) assert.equal(await request(file), 404);
     assert.equal(await request("/"), 200);
     assert.equal(await request("/styles.css"), 200);
   } finally {

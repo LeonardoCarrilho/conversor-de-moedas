@@ -32,7 +32,9 @@ createServer((req, res) => {
   const caminho = normalize(join(raiz, url === "/" ? "index.html" : url));
 
   const relativo = relative(raiz, caminho);
-  if (relativo.startsWith("..") || isAbsolute(relativo) || !existsSync(caminho) || statSync(caminho).isDirectory()) {
+  const publico = /^(index\.html|styles\.css|(?:src|assets)\/[a-zA-Z0-9_./-]+)$/.test(relativo.replaceAll("\\", "/")) && !relativo.split(/[\\/]/).some(part => part.startsWith("."));
+  if (!["GET", "HEAD"].includes(req.method)) { res.writeHead(405, { Allow: "GET, HEAD" }); return res.end(); }
+  if (!publico || relativo.startsWith("..") || isAbsolute(relativo) || !existsSync(caminho) || statSync(caminho).isDirectory()) {
     res.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
     res.end("404 — arquivo não encontrado");
     return;
@@ -41,10 +43,13 @@ createServer((req, res) => {
   res.writeHead(200, {
     "content-type": tipos[extname(caminho)] ?? "application/octet-stream",
     "cache-control": "no-cache",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "x-frame-options": "DENY",
   });
   const stream = createReadStream(caminho);
   stream.on("error", () => res.destroy());
   stream.pipe(res);
-}).listen(porta, () => {
+}).listen(porta, "127.0.0.1", () => {
   console.log(`Câmbio Hoje disponível em http://localhost:${porta}`);
 });
