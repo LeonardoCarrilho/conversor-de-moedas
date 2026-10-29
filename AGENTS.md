@@ -16,3 +16,5 @@ Aplicam-se a qualquer agente/modelo e a todas as alterações deste repositório
 - Antes de publicar, revisar diff e artefato: segredos, mapas de fonte, arquivos internos, páginas administrativas, endpoints, CORS, autenticação, permissões do CI e headers/HTTPS no domínio real.
 - Documentar o que foi testado, o que depende de hospedagem/conta externa e o que não se aplica. Não declarar configuração externa concluída sem verificar.
 - Ao editar prosa, aplicar Humanizer quando disponível, preservando precisão técnica.
+
+- Antes de alterar interfaces, consultar docs/DESIGN.md e preservar a identidade visual própria do projeto. Revisar capturas reais em desktop e celular, além dos testes automatizados.
