@@ -13,3 +13,9 @@ Thumbs.db
 coverage/
 playwright-report/
 test-results/
+.taste-skill/chrome*/
+.taste-skill/before-build/
+.taste-skill/*.png
+.taste-skill/shots/
+assets/taste/moments/
+assets/taste/motion/demo.html

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-type="software" data-motion data-radius="sharp">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' https://economia.awesomeapi.com.br; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
@@ -13,8 +13,7 @@
     <meta name="theme-color" content="#0d1f3c" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="editorial.css" />
-  </head>
+  <meta name="page-type" content="software"/><meta name="site-kind" content="software"/><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/taste/motion/motion.css"/><link rel="stylesheet" href="redesign.css"/></head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
@@ -48,9 +47,9 @@
     </header>
 
     <main id="conteudo">
-      <section class="hero wrap">
+      <section class="hero wrap" data-enter>
         <p class="eyebrow">Câmbio comercial</p>
-        <h1>Seu dinheiro, em outras moedas.</h1>
+        <h1>Conversor de moedas para o dia a dia.</h1>
         <p class="hero-lead">
           Compare nove moedas, inverta os pares e acompanhe o câmbio em um só lugar.
           Suas últimas conversões ficam salvas neste navegador.
@@ -66,7 +65,7 @@
         <form id="form-conversao" class="converter" novalidate>
           <div class="converter-head">
             <div>
-              <h2 id="titulo-conversao">Quanto vale?</h2>
+              <h2 id="titulo-conversao">Sua conversão</h2>
               <p>O resultado muda enquanto você digita.</p>
             </div>
             <span class="chip" id="fonte-chip">cotação ao vivo</span>
@@ -172,18 +171,17 @@
             </p>
           </article>
           <article>
-            <h3>Cache de 15 minutos</h3>
+            <h3>Cotações salvas por 15 minutos</h3>
             <p>
-              As cotações ficam salvas no <code>localStorage</code> com data e hora.
+              As cotações ficam salvas neste navegador com data e hora.
               Se a API falhar ou você estiver offline, o conversor continua
               funcionando com a última tabela conhecida.
             </p>
           </article>
           <article>
-            <h3>Nada de chave secreta</h3>
+            <h3>Nove moedas disponíveis</h3>
             <p>
-              A AwesomeAPI é pública e não exige token. O projeto é 100% estático:
-              não há back-end, banco ou variável de ambiente para configurar.
+              Escolha a moeda de origem e a de destino. O painel também permite selecionar uma moeda para a próxima conversão.
             </p>
           </article>
           <article>
@@ -212,5 +210,5 @@
     <p class="sr-only" id="anuncio" role="status" aria-live="polite"></p>
 
     <script type="module" src="src/app.js"></script>
-  </body>
+  <script type="module" src="assets/taste/motion/motion.js"></script></body>
 </html>
