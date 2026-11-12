@@ -16,7 +16,7 @@ A composição preserva a ferramenta operacional, os campos e os resultados reai
 
 ## Gate e limites
 
-Todos os 59 FAILs abertos, 14 WARNs e suas localizações estão no [registro integral](findings.json). A validação não é PASS. As exigências de seções fullscreen, CTA promocional por seção, fotografia/mockup e momentos de demonstração são incompatíveis com a manutenção destas ferramentas. Elas continuam abertas, sem isenções genéricas. Alinhamentos sinalizados em painéis, subtítulos e tabelas foram confrontados com as capturas.
+O [registro integral](findings.json) contém 59 achados FAIL antes das isenções: 4 receberam isenções específicas e 55 permanecem efetivamente abertos, conforme a linha GATE acima. Também registra 14 WARNs e suas localizações. O campo histórico openFails do JSON inclui os achados isentados; a contagem efetiva é a da linha GATE. A validação não é PASS. As exigências de seções fullscreen, CTA promocional por seção, fotografia/mockup e momentos de demonstração são incompatíveis com a manutenção destas ferramentas. Elas continuam abertas, sem isenções genéricas. Alinhamentos sinalizados em painéis, subtítulos e tabelas foram confrontados com as capturas.
 
 Achados finais de foco, contraste, toque, colisão, overflow de página e entrada: nenhum FAIL dessas classes no gate final.
 
