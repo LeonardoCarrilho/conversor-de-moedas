@@ -62,3 +62,14 @@ main { display:grid; grid-template-columns: minmax(0,1fr); }
 .about { border-top:1px solid var(--line); padding-top:48px; }
 @media(min-width:1100px) { main { grid-template-columns: minmax(0,1fr) minmax(0,1fr); width:min(1280px,calc(100% - 96px)); margin:auto; column-gap:64px; } main>.wrap { width:100%; grid-column:1/-1; } main>.hero { grid-column:1; grid-row:1; align-self:center; } main>section:nth-child(2) { grid-column:2; grid-row:1; padding-top:56px; } }
 @media(max-width:767px) { .converter { padding:20px; } .rates-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .rate-card { padding:18px; } .result { padding:20px; } .status { max-width:140px; } }
+/* The converter is a single task column beside its introduction. */
+.converter { display:block; }
+.converter-grid { display:flex; flex-direction:column; gap:22px; margin:24px 0; }
+.result { margin:24px 0; }
+.converter-actions { margin-top:24px; }
+@media(min-width:1100px) { .hero h1 { font-size:clamp(48px,4.5vw,64px); } }
+.converter-grid { align-items:stretch; }
+.hero h1 { font-weight:500; }
+@media(max-width:500px) { .rates-grid { grid-template-columns:1fr; } .rate-value { font-size:28px; overflow-wrap:normal; } }
+.swap:hover { transform:translateY(-1px); }
+.brand { min-height:44px; }

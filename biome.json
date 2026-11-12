@@ -4,7 +4,10 @@
       "**",
       "!**/dist",
       "!**/coverage",
-      "!**/package-lock.json"
+      "!**/package-lock.json",
+      "!**/.taste-skill",
+      "!**/assets/taste",
+      "!**/public/taste"
     ]
   },
   "formatter": {

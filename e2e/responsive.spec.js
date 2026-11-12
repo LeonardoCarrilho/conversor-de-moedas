@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-for (const width of [320, 390, 768, 1440]) {
+for (const width of [320, 390, 768, 820, 1024, 1440]) {
   test("layout utilizável em " + width + "px", async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.emulateMedia({ reducedMotion: "reduce", colorScheme: "light" });

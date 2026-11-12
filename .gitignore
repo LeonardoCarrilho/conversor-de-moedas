@@ -19,3 +19,10 @@ test-results/
 .taste-skill/shots/
 assets/taste/moments/
 assets/taste/motion/demo.html
+
+assets/taste/motion/_hover-test.html
+assets/taste/motion/meta.json
+
+.taste-skill/*
+!.taste-skill/PLAN.md
+!.taste-skill/REPORT.md
