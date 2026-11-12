@@ -41,7 +41,7 @@ jobs:
             server/coverage/
             web/coverage/
           if-no-files-found: error
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v7
         if: vars.CODECOV_ENABLED == 'true'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
