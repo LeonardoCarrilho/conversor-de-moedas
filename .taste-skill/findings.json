@@ -1,0 +1,1167 @@
+{
+  "gate": "GATE: OPEN 55 (rounds used up)",
+  "round": 3,
+  "history": [
+    {
+      "at": "2026-11-12T00:06:58.234Z",
+      "mode": "manual",
+      "status": "fail",
+      "fails": 60,
+      "round": 1,
+      "reused": false,
+      "stopHookActive": false
+    },
+    {
+      "at": "2026-11-12T00:40:15.219Z",
+      "mode": "manual",
+      "status": "fail",
+      "fails": 57,
+      "round": 2,
+      "reused": false,
+      "stopHookActive": false
+    },
+    {
+      "at": "2026-11-12T00:47:11.841Z",
+      "mode": "manual",
+      "status": "open",
+      "fails": 55,
+      "round": 3,
+      "reused": false,
+      "stopHookActive": false
+    }
+  ],
+  "waivers": [
+    {
+      "check": "gaming-suspect",
+      "target": "dist/assets/index-",
+      "reason": "The bundled code is the unchanged taste-skill motion.js shot() check for HeadlessChrome; its own documented screenshot behavior, not application checker detection."
+    },
+    {
+      "check": "motion-layer",
+      "target": "html[data-motion]",
+      "reason": "Vite bundles the unchanged taste-skill motion.css into the generated CSS asset. Source index.html imports it and the built CSS contains the motion layer."
+    },
+    {
+      "check": "hero-fill",
+      "target": "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão\"",
+      "reason": "The intro and the real converter are intentional adjacent columns at 1440px; screenshots show separate non-overlapping content. The application form is not a second promotional section."
+    },
+    {
+      "check": "nav",
+      "target": "header.site-header > div.wrap.header-inner > a.brand \"Câmbio Hoje conversor de moedas\"",
+      "reason": "The two lines are the brand name and its category subtitle within one brand link, not wrapped navigation items. Both are visible inside the header."
+    }
+  ],
+  "openFails": [
+    {
+      "check": "gaming-suspect",
+      "where": "dist/assets/index-C60P_z5K.js",
+      "msg": "the page's own script reads the user agent near \"headless\" or an automation tool's name",
+      "fix": "delete the user-agent test; a visitor and the checker get the same page",
+      "widths": [],
+      "ids": [
+        "gaming-suspect"
+      ],
+      "wheres": [
+        "dist/assets/index-C60P_z5K.js"
+      ]
+    },
+    {
+      "check": "hero-fill",
+      "where": "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão\"",
+      "msg": "the next section shows on the first screen: it starts at 145px on a 900px screen (the hero ends at 679px)",
+      "fix": "let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "hero-fill"
+      ],
+      "wheres": [
+        "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão\""
+      ]
+    },
+    {
+      "check": "flush",
+      "where": "span#atualizado \"Cotação atualizada há 9 min\"",
+      "msg": "section.hero.wrap and section.wrap:nth-of-type(2) run together: -476px between their content, on one ground",
+      "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "flush"
+      ],
+      "wheres": [
+        "span#atualizado \"Cotação atualizada há 9 min\""
+      ]
+    },
+    {
+      "check": "flush",
+      "where": "div#painel-moedas > button.rate-card:nth-of-type(5) \"🇦🇷 ARS +0,25% R$ 0,003616 Peso argenti\"",
+      "msg": "its button sits 0px above the lower edge of section.wrap.rates, where the ground changes to section.wrap.history-section",
+      "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "flush"
+      ],
+      "wheres": [
+        "div#painel-moedas > button.rate-card:nth-of-type(5) \"🇦🇷 ARS +0,25% R$ 0,003616 Peso argenti\""
+      ]
+    },
+    {
+      "check": "flush",
+      "where": "main#conteudo > section.wrap.history-section > div.history-card \"Nenhuma conversão salva ainda.\"",
+      "msg": "its last line sits 0px above the lower edge of section.wrap.history-section, where the ground changes to section#como-funciona",
+      "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "flush"
+      ],
+      "wheres": [
+        "main#conteudo > section.wrap.history-section > div.history-card \"Nenhuma conversão salva ainda.\""
+      ]
+    },
+    {
+      "check": "flush",
+      "where": "section#como-funciona > div.about-grid > article:nth-of-type(3) > p \"Escolha a moeda de origem e a de destino\"",
+      "msg": "its last line sits 3px above the rule on top of the footer",
+      "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "flush"
+      ],
+      "wheres": [
+        "section#como-funciona > div.about-grid > article:nth-of-type(3) > p \"Escolha a moeda de origem e a de destino\""
+      ]
+    },
+    {
+      "check": "nav",
+      "where": "header.site-header > div.wrap.header-inner > a.brand \"Câmbio Hoje conversor de moedas\"",
+      "msg": "nav link wraps to a second line",
+      "fix": "make the nav one bar from the content's left edge to its right edge, with every link and action inside it",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "nav"
+      ],
+      "wheres": [
+        "header.site-header > div.wrap.header-inner > a.brand \"Câmbio Hoje conversor de moedas\""
+      ]
+    },
+    {
+      "check": "no-visual",
+      "where": "main#conteudo > section.wrap.rates \"Painel do dia\"",
+      "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+      "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "no-visual"
+      ],
+      "wheres": [
+        "main#conteudo > section.wrap.rates \"Painel do dia\""
+      ]
+    },
+    {
+      "check": "text-only",
+      "where": "section#como-funciona \"Como funciona\"",
+      "msg": "the closing section is only text: no picture, icon, mock or effect in it",
+      "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "text-only"
+      ],
+      "wheres": [
+        "section#como-funciona \"Como funciona\""
+      ]
+    },
+    {
+      "check": "cta",
+      "where": "main#conteudo > section.hero.wrap",
+      "msg": "the hero has no button (the nav's does not count)",
+      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "cta"
+      ],
+      "wheres": [
+        "main#conteudo > section.hero.wrap"
+      ]
+    },
+    {
+      "check": "cta",
+      "where": "section#como-funciona \"Como funciona\"",
+      "msg": "the last section before the footer ends with no button",
+      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "cta"
+      ],
+      "wheres": [
+        "section#como-funciona \"Como funciona\""
+      ]
+    },
+    {
+      "check": "heading-scale",
+      "where": "h2#titulo-painel \"Painel do dia\"",
+      "msg": "h2 headings in 2 sizes, 24px (\"Sua conversão\") to 32px (x1.33)",
+      "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "heading-scale"
+      ],
+      "wheres": [
+        "h2#titulo-painel \"Painel do dia\""
+      ]
+    },
+    {
+      "check": "section-gaps",
+      "where": "section#como-funciona / footer.site-footer",
+      "msg": "102px between these sections, +82% against the median 56px",
+      "fix": "use one gap between sections (all within 25% of each other)",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "section-gaps"
+      ],
+      "wheres": [
+        "section#como-funciona / footer.site-footer"
+      ]
+    },
+    {
+      "check": "motion-layer",
+      "where": "html[data-motion]",
+      "msg": "the page marks <html data-motion> but motion.css is not loaded: buttons, links, cards and photos answer nothing on hover",
+      "fix": "link assets/motion/motion.css after cards.css and keep data-motion on <html> (both, or neither)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "motion-layer"
+      ],
+      "wheres": [
+        "html[data-motion]"
+      ]
+    },
+    {
+      "check": "moment-none",
+      "where": "(the page)",
+      "msg": "a software page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+      "fix": "deal one (moments.mjs pick --page software) and mount it in its own section",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "moment-none"
+      ],
+      "wheres": [
+        "(the page)"
+      ]
+    },
+    {
+      "check": "hero-screen",
+      "where": "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão O resultado muda enquanto \"",
+      "msg": "the hero ends at 797px on a 900px screen, 103px above the fold: it ends at the fold, 1px either way (SR-1)",
+      "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "hero-screen"
+      ],
+      "wheres": [
+        "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão O resultado muda enquanto \""
+      ]
+    },
+    {
+      "check": "hero-screen",
+      "where": "main#conteudo > section.hero.wrap \"Câmbio comercial Conversor de moedas par\"",
+      "msg": "693px of the next section shows on the first screen (from 207px on a 900px screen): nothing below the hero shows at load (SR-1)",
+      "fix": "end the hero at the fold so nothing of the next section shows at load (hero height: 100svh)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "hero-screen"
+      ],
+      "wheres": [
+        "main#conteudo > section.hero.wrap \"Câmbio comercial Conversor de moedas par\""
+      ]
+    },
+    {
+      "check": "section-height",
+      "where": "footer.site-footer \"Feito por Leonardo Carrilho · HTML, CSS \"",
+      "msg": "the section is 80px tall (0.1 screens), 820px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "section-height"
+      ],
+      "wheres": [
+        "footer.site-footer \"Feito por Leonardo Carrilho · HTML, CSS \""
+      ]
+    },
+    {
+      "check": "section-height",
+      "where": "main#conteudo > section.wrap.history-section \"Conversões recentes Salvas apenas neste \"",
+      "msg": "the section is 208px tall (0.2 screens), 692px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "section-height"
+      ],
+      "wheres": [
+        "main#conteudo > section.wrap.history-section \"Conversões recentes Salvas apenas neste \"",
+        "main#conteudo > section.hero.wrap \"Câmbio comercial Conversor de moedas par\"",
+        "main#conteudo > section.wrap.rates \"Painel do dia Cotação de 1 unidade em re\""
+      ]
+    },
+    {
+      "check": "section-height",
+      "where": "section#como-funciona \"Como funciona Cotação em cascata A API e\"",
+      "msg": "the section is 300px tall (0.3 screens), 600px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 2 more like it: \"Painel do dia Cotação de\", \"Câmbio comercial Convers\") (SR-2)",
+      "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "section-height",
+        "screen-short",
+        "screen-height"
+      ],
+      "wheres": [
+        "section#como-funciona \"Como funciona Cotação em cascata A API e\"",
+        "#como-funciona section.wrap.about \"Como funciona Cotação em cascata\""
+      ]
+    },
+    {
+      "check": "section-air",
+      "where": "main#conteudo > section.wrap.rates / main#conteudo > section.wrap.history-section",
+      "msg": "56px of air between the content of these two sections: 128-480px (64-600px WARN) (every gap out of the band at 1440px, top to bottom: 56px after \"Painel do dia Cotaçã\", 75px after \"Conversões recentes \") (SR-3)",
+      "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "section-air"
+      ],
+      "wheres": [
+        "main#conteudo > section.wrap.rates / main#conteudo > section.wrap.history-section"
+      ]
+    },
+    {
+      "check": "one-section",
+      "where": "main#conteudo > section.hero.wrap > h1 \"Conversor de moedas para o dia a dia.\"",
+      "msg": "the screen at scroll 0px (stride 0) shows 472px of section 2 and the heading of section 2 whole and the content of 3 sections, over 24px each beside section 1: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)",
+      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "one-section"
+      ],
+      "wheres": [
+        "main#conteudo > section.hero.wrap > h1 \"Conversor de moedas para o dia a dia.\"",
+        "main#conteudo > section.wrap.history-section > div.history-card \"Nenhuma conversão salva ainda.\""
+      ]
+    },
+    {
+      "check": "one-section",
+      "where": "h2#titulo-historico \"Conversões recentes\"",
+      "msg": "the screen at scroll 900px (stride 1) shows 300px of section 5 and the heading of section 4 whole and the content of 3 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (and 1 more like it: scroll 797px) (SR-4)",
+      "fix": "make each section exactly one screen or two, so a screen shows one section and no neighbour peeks",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "one-section"
+      ],
+      "wheres": [
+        "h2#titulo-historico \"Conversões recentes\""
+      ]
+    },
+    {
+      "check": "one-section",
+      "where": "form#form-conversao \"Sua conversão O resultado muda enquanto \"",
+      "msg": "a band: a box 100% of the section wide on a ground of its own that holds the heading or the intro: the section's own ground is the band (SR-4)",
+      "fix": "put every block of <main> in a <section>, and give a band its own section instead of a ground inside one",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "one-section"
+      ],
+      "wheres": [
+        "form#form-conversao \"Sua conversão O resultado muda enquanto \"",
+        "form#form-conversao > div.result \"US$ 1.000,00 · Dólar americano R$ 5.583,\""
+      ]
+    },
+    {
+      "check": "one-heading",
+      "where": "h2#titulo-conversao \"Sua conversão\"",
+      "msg": "the hero holds an h2 (1): its heading is the h1, and an h2 opens the next section (SR-5)",
+      "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "one-heading"
+      ],
+      "wheres": [
+        "h2#titulo-conversao \"Sua conversão\""
+      ]
+    },
+    {
+      "check": "container-edges",
+      "where": "a.skip-link \"Pular para o conteúdo\"",
+      "msg": "a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+      "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "container-edges"
+      ],
+      "wheres": [
+        "a.skip-link \"Pular para o conteúdo\""
+      ]
+    },
+    {
+      "check": "container-edges",
+      "where": "header.site-header \"Câmbio Hoje conversor de moedas cotação \"",
+      "msg": "a <header> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+      "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "container-edges"
+      ],
+      "wheres": [
+        "header.site-header \"Câmbio Hoje conversor de moedas cotação \""
+      ]
+    },
+    {
+      "check": "container-edges",
+      "where": "footer.site-footer \"Feito por Leonardo Carrilho · HTML, CSS \"",
+      "msg": "a <footer> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (and 6 more like it: p#anuncio, \"Sua conversão O resultad\", \"Câmbio comercial Convers\") (SR-6)",
+      "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "container-edges"
+      ],
+      "wheres": [
+        "footer.site-footer \"Feito por Leonardo Carrilho · HTML, CSS \""
+      ]
+    },
+    {
+      "check": "container-edges",
+      "where": "h2#titulo-conversao \"Sua conversão\"",
+      "msg": "the h2 starts 705px right of the container's left: every h1 and h2 starts on it, 2px either way (SR-6)",
+      "fix": "start the text on the container's left, or on the one split line every split shares",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "container-edges"
+      ],
+      "wheres": [
+        "h2#titulo-conversao \"Sua conversão\""
+      ]
+    },
+    {
+      "check": "container-edges",
+      "where": "p#historico-vazio \"Nenhuma conversão salva ainda.\"",
+      "msg": "1 text block starts on a left line at x 617, 537px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (SR-6)",
+      "fix": "start the text on the container's left, or on the one split line every split shares",
+      "widths": [
+        1440
+      ],
+      "from": "consistency",
+      "ids": [
+        "container-edges"
+      ],
+      "wheres": [
+        "p#historico-vazio \"Nenhuma conversão salva ainda.\""
+      ]
+    },
+    {
+      "check": "flush",
+      "where": "form#form-conversao \"Sua conversão O resultado muda enquanto \"",
+      "msg": "its first line sits 0px under the top edge of section.wrap:nth-of-type(2), where the ground changes",
+      "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+      "widths": [
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "flush"
+      ],
+      "wheres": [
+        "form#form-conversao \"Sua conversão O resultado muda enquanto \""
+      ]
+    },
+    {
+      "check": "flush",
+      "where": "div#painel-moedas > button.rate-card:nth-of-type(8) \"🇨🇭 CHF -0,82% R$ 6,70 Franco suíço\"",
+      "msg": "its button sits 0px above the lower edge of section.wrap.rates, where the ground changes to section.wrap.history-section",
+      "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+      "widths": [
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "flush"
+      ],
+      "wheres": [
+        "div#painel-moedas > button.rate-card:nth-of-type(8) \"🇨🇭 CHF -0,82% R$ 6,70 Franco suíço\""
+      ]
+    },
+    {
+      "check": "flush",
+      "where": "section#como-funciona > div.about-grid > article:nth-of-type(4) > p \"Na primeira visita sem internet, o app u\"",
+      "msg": "its last line sits 3px above the rule on top of the footer",
+      "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+      "widths": [
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "flush"
+      ],
+      "wheres": [
+        "section#como-funciona > div.about-grid > article:nth-of-type(4) > p \"Na primeira visita sem internet, o app u\""
+      ]
+    },
+    {
+      "check": "no-visual",
+      "where": "main#conteudo > section.hero.wrap \"Conversor de moedas para o dia a dia.\"",
+      "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+      "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+      "widths": [
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "no-visual"
+      ],
+      "wheres": [
+        "main#conteudo > section.hero.wrap \"Conversor de moedas para o dia a dia.\""
+      ]
+    },
+    {
+      "check": "no-visual",
+      "where": "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão\"",
+      "msg": "no picture, effect or mock in this section; a feature section needs a visual",
+      "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+      "widths": [
+        390
+      ],
+      "from": "consistency",
+      "ids": [
+        "no-visual"
+      ],
+      "wheres": [
+        "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona h2 \"Como funciona\"",
+      "msg": "x 80 to 1360, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona h2 \"Como funciona\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona h3 \"Cotação em cascata\"",
+      "msg": "x 80 to 704, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona h3 \"Cotação em cascata\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona p \"A API entrega cada moeda em rela\"",
+      "msg": "x 80 to 704, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona p \"A API entrega cada moeda em rela\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona h3 \"Cotações salvas por 15 minutos\"",
+      "msg": "x 736 to 1360, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona h3 \"Cotações salvas por 15 minutos\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona p \"As cotações ficam salvas neste n\"",
+      "msg": "x 736 to 1360, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona p \"As cotações ficam salvas neste n\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona h3 \"Nove moedas disponíveis\"",
+      "msg": "x 80 to 704, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona h3 \"Nove moedas disponíveis\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona p \"Escolha a moeda de origem e a de\"",
+      "msg": "x 80 to 704, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona p \"Escolha a moeda de origem e a de\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona h3 \"Valores de referência\"",
+      "msg": "x 736 to 1360, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona h3 \"Valores de referência\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "#como-funciona p \"Na primeira visita sem internet,\"",
+      "msg": "x 736 to 1360, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "#como-funciona p \"Na primeira visita sem internet,\""
+      ]
+    },
+    {
+      "check": "spill",
+      "where": "footer.site-footer p.muted \"Cotações informativas, sem sprea\"",
+      "msg": "x 1058.8 to 1360, the page runs 80 to 688",
+      "fix": "keep it inside the .wrap; nothing past the right edge",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "spill"
+      ],
+      "wheres": [
+        "footer.site-footer p.muted \"Cotações informativas, sem sprea\""
+      ]
+    },
+    {
+      "check": "screen-short",
+      "where": "section.hero.wrap section.hero.wrap \"Câmbio comercial Conversor de mo\"",
+      "msg": "472px tall; one screen under the nav is 900px",
+      "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "screen-short"
+      ],
+      "wheres": [
+        "section.hero.wrap section.hero.wrap \"Câmbio comercial Conversor de mo\""
+      ]
+    },
+    {
+      "check": "neighbour",
+      "where": "section.hero.wrap section.hero.wrap \"Câmbio comercial Conversor de mo\"",
+      "msg": "framed, 67px of section.wrap section.wrap \"Sua conversão O resultado muda e\" shows",
+      "fix": "keep the next section's heading and picture out of this screen",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "neighbour"
+      ],
+      "wheres": [
+        "section.hero.wrap section.hero.wrap \"Câmbio comercial Conversor de mo\""
+      ]
+    },
+    {
+      "check": "screen-short",
+      "where": "section.wrap section.wrap \"Sua conversão O resultado muda e\"",
+      "msg": "708px tall; one screen under the nav is 900px",
+      "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "screen-short"
+      ],
+      "wheres": [
+        "section.wrap section.wrap \"Sua conversão O resultado muda e\""
+      ]
+    },
+    {
+      "check": "screen-height",
+      "where": "section.wrap section.wrap \"Sua conversão O resultado muda e\"",
+      "msg": "708px, 0.79 screens; a section is exactly one or two (--h)",
+      "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "screen-height"
+      ],
+      "wheres": [
+        "section.wrap section.wrap \"Sua conversão O resultado muda e\""
+      ]
+    },
+    {
+      "check": "neighbour",
+      "where": "section.wrap section.wrap \"Sua conversão O resultado muda e\"",
+      "msg": "framed, 200px of section.hero.wrap section.hero.wrap \"Câmbio comercial Conversor de mo\" shows",
+      "fix": "keep the next section's heading and picture out of this screen",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "neighbour"
+      ],
+      "wheres": [
+        "section.wrap section.wrap \"Sua conversão O resultado muda e\""
+      ]
+    },
+    {
+      "check": "screen-short",
+      "where": "section.wrap.rates section.wrap.rates \"Painel do dia Cotação de 1 unida\"",
+      "msg": "435px tall; one screen under the nav is 900px",
+      "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "screen-short"
+      ],
+      "wheres": [
+        "section.wrap.rates section.wrap.rates \"Painel do dia Cotação de 1 unida\""
+      ]
+    },
+    {
+      "check": "screen-height",
+      "where": "section.wrap.rates section.wrap.rates \"Painel do dia Cotação de 1 unida\"",
+      "msg": "435px, 0.48 screens; a section is exactly one or two (--h)",
+      "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+      "widths": [
+        1440
+      ],
+      "from": "layout",
+      "ids": [
+        "screen-height"
+      ],
+      "wheres": [
+        "section.wrap.rates section.wrap.rates \"Painel do dia Cotação de 1 unida\""
+      ]
+    },
+    {
+      "check": "neighbour",
+      "where": "section.wrap.rates section.wrap.rates \"Painel do dia Cotação de 1 unida\"",
+      "msg": "framed, 57px of section.wrap.history-section section.wrap.history-section \"Conversões recentes Salvas apena\" shows",
+      "fix": "keep the next section's heading and picture out of this screen",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "neighbour"
+      ],
+      "wheres": [
+        "section.wrap.rates section.wrap.rates \"Painel do dia Cotação de 1 unida\""
+      ]
+    },
+    {
+      "check": "screen-short",
+      "where": "section.wrap.history-section section.wrap.history-section \"Conversões recentes Salvas apena\"",
+      "msg": "208px tall; one screen under the nav is 900px",
+      "fix": "make the section one full screen (--h: 1, layout-v4.md section 2)",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "screen-short"
+      ],
+      "wheres": [
+        "section.wrap.history-section section.wrap.history-section \"Conversões recentes Salvas apena\""
+      ]
+    },
+    {
+      "check": "screen-height",
+      "where": "section.wrap.history-section section.wrap.history-section \"Conversões recentes Salvas apena\"",
+      "msg": "208px, 0.23 screens; a section is exactly one or two (--h)",
+      "fix": "make the section exactly one or two screens (--h: 1 or 2)",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "screen-height"
+      ],
+      "wheres": [
+        "section.wrap.history-section section.wrap.history-section \"Conversões recentes Salvas apena\""
+      ]
+    },
+    {
+      "check": "neighbour",
+      "where": "section.wrap.history-section section.wrap.history-section \"Conversões recentes Salvas apena\"",
+      "msg": "framed, 74px of #como-funciona section.wrap.about \"Como funciona Cotação em cascata\" shows",
+      "fix": "keep the next section's heading and picture out of this screen",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "neighbour"
+      ],
+      "wheres": [
+        "section.wrap.history-section section.wrap.history-section \"Conversões recentes Salvas apena\""
+      ]
+    },
+    {
+      "check": "neighbour",
+      "where": "#como-funciona section.wrap.about \"Como funciona Cotação em cascata\"",
+      "msg": "framed, 80px of the footer shows",
+      "fix": "keep the next section's heading and picture out of this screen",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "neighbour"
+      ],
+      "wheres": [
+        "#como-funciona section.wrap.about \"Como funciona Cotação em cascata\""
+      ]
+    },
+    {
+      "check": "hero-fold",
+      "where": "section.hero.wrap section.hero.wrap \"Câmbio comercial Conversor de mo\"",
+      "msg": "starts at y 207, not under the nav",
+      "fix": "the hero fills the first screen alone, its button inside it",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "hero-fold"
+      ],
+      "wheres": [
+        "section.hero.wrap section.hero.wrap \"Câmbio comercial Conversor de mo\""
+      ]
+    },
+    {
+      "check": "hero-fold",
+      "where": "section.wrap section.wrap \"Sua conversão O resultado muda e\"",
+      "msg": "shows on the first screen from y 178",
+      "fix": "the hero fills the first screen alone, its button inside it",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "layout",
+      "ids": [
+        "hero-fold"
+      ],
+      "wheres": [
+        "section.wrap section.wrap \"Sua conversão O resultado muda e\""
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "check": "nav",
+      "where": "header.site-header > div.wrap.header-inner > a.brand \"Câmbio Hoje conversor de moedas\"",
+      "msg": "the nav is lopsided: its first item starts 10px inside the content's edge (80px), while its last ends on the other edge",
+      "fix": "start the nav's first item and end its last on the content's two edges",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "card-visual",
+      "where": "div#painel-moedas \"🇺🇸 USD +0,00% R$ 5,58 Dólar americano \"",
+      "msg": "8 cards hold only text: no picture, icon, UI fragment or effect in any of them",
+      "fix": "give the cards a visual: an inset panel with a UI fragment, a photograph or real icons",
+      "widths": [
+        1440,
+        390
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "copy-headings",
+      "where": "h2#titulo-como \"Como funciona\"",
+      "msg": "\"Como funciona\" names no product, part, place or section (the one brand line a page may have)",
+      "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "copy-buttons",
+      "where": "form#form-conversao > div.converter-actions > button.btn.btn-primary \"Converter e salvar\"",
+      "msg": "\"Converter e salvar\" does not start with a verb (book, buy, try, start, get, see...) (and 1 more like it: \"Copiar resultado\")",
+      "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "copy-actions",
+      "where": "(the page)",
+      "msg": "the main action \"Converter e salvar\" does not read word for word the same in the nav or hero and the closing section",
+      "fix": "few actions, one wording: at most 2 in the hero, the main action word for word in nav, hero and close",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "section-gaps",
+      "where": "main#conteudo > section.hero.wrap / main#conteudo > section.wrap:nth-of-type(2)",
+      "msg": "the sections overlap by 476px",
+      "fix": "use one gap between sections (all within 25% of each other)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "copy-length",
+      "where": "section#como-funciona \"Como funciona\"",
+      "msg": "1 section over 90 words a screen outside the UI mocks (\"Como funciona\" 121); 57 words a screen across the page (283 words in 5 screens): a tech page says it in about 80 or fewer",
+      "fix": "cut every section to its heading, one line and the product UI: the UI says the rest; no second paragraph, no list of feature sentences",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "one-screen",
+      "where": "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão\"",
+      "msg": "2 sections are shorter than the screen, so the next one's heading or picture shows with them: \"Sua conversão\" is 708px of the 900px under the nav, and \"Painel do dia\" shows below it (\"Painel do dia\")",
+      "fix": "give each section the screen (min-height: 100svh less the nav, its content centred), or join two short ones into one",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "skip-link",
+      "where": "a.skip-link \"Pular para o conteúdo\"",
+      "msg": "the first Tab stop is \"Pular para o conteúdo\", not a skip link: a keyboard user tabs through the whole nav on every visit",
+      "fix": "add the starter's skip link as the header's first child: <a class=\"skip-link\" href=\"#top\">Skip to content</a>",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "share-meta",
+      "where": "head",
+      "msg": "the head lacks og:description, og:image, twitter:card: a shared link shows no picture or title of its own",
+      "fix": "copy the head block of starter.html: og tags, twitter:card, the icon and theme-color (references/system.md, Head)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "section-air",
+      "where": "main#conteudo > section.wrap.history-section / section#como-funciona",
+      "msg": "75px of air between the content of these two sections: 128-480px (64-600px WARN) (SR-3)",
+      "fix": "keep 128-480px of air between the content of neighbouring sections (112-420px on a phone): the sections' padding (--padt, --padb)",
+      "widths": [
+        1440
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "nav",
+      "where": "header.site-header > div.wrap.header-inner > a.brand \"Câmbio Hoje\"",
+      "msg": "the nav is lopsided: its first item starts 10px inside the content's edge (16px), while its last ends on the other edge",
+      "fix": "start the nav's first item and end its last on the content's two edges",
+      "widths": [
+        390
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "button-styles",
+      "where": "a.skip-link \"Pular para o conteúdo\"",
+      "msg": "on the phone 2 buttons run the full width of their column, but  \"Pular para o conteúdo\" is 192px of 390px: one action in two sizes",
+      "fix": "give every button the same width rule on the phone: all full width, or all at their own width",
+      "widths": [
+        390
+      ],
+      "from": "consistency"
+    },
+    {
+      "check": "heading-scale",
+      "where": "h2#titulo-painel \"Painel do dia\"",
+      "msg": "h2 headings in 2 sizes, 24px (\"Sua conversão\") to 28px (x1.17)",
+      "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+      "widths": [
+        390
+      ],
+      "from": "consistency"
+    }
+  ]
+}

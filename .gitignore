@@ -26,3 +26,6 @@ assets/taste/motion/meta.json
 .taste-skill/*
 !.taste-skill/PLAN.md
 !.taste-skill/REPORT.md
+
+!.taste-skill/findings.json
+!.taste-skill/waivers.json
