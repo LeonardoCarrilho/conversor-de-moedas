@@ -1,3 +1,4 @@
+import "./observability.js";
 import {
   CHAVE_CACHE,
   CHAVE_HISTORICO,
@@ -288,7 +289,7 @@ function renderizarTudo() {
 function carregarHistorico() {
   try {
     const itens = JSON.parse(localStorage.getItem(CHAVE_HISTORICO) ?? "[]");
-    return Array.isArray(itens) ? itens.filter((item) => item && item.id) : [];
+    return Array.isArray(itens) ? itens.filter((item) => item && typeof item.id === "string" && /^[A-Z]{3}$/.test(item.origem) && /^[A-Z]{3}$/.test(item.destino) && Number.isFinite(item.valor) && Number.isFinite(item.convertido) && Number.isFinite(Date.parse(item.em))).slice(0, LIMITE_HISTORICO) : [];
   } catch {
     return [];
   }
@@ -335,10 +336,7 @@ function renderizarHistorico(itens = carregarHistorico()) {
 
     const descricao = document.createElement("span");
     descricao.className = "history-conversion";
-    descricao.innerHTML = `${formatarMoeda(item.valor, item.origem)} → <strong>${formatarMoeda(
-      item.convertido,
-      item.destino
-    )}</strong> <span class="muted">${item.origem}/${item.destino}</span>`;
+    descricao.textContent = formatarMoeda(item.valor, item.origem) + " → " + formatarMoeda(item.convertido, item.destino) + " " + item.origem + "/" + item.destino;
 
     const lado = document.createElement("span");
     lado.className = "history-side";

@@ -1,0 +1,22 @@
+[
+  {
+    "check": "gaming-suspect",
+    "target": "dist/assets/index-",
+    "reason": "The bundled code is the unchanged taste-skill motion.js shot() check for HeadlessChrome; its own documented screenshot behavior, not application checker detection."
+  },
+  {
+    "check": "motion-layer",
+    "target": "html[data-motion]",
+    "reason": "Vite bundles the unchanged taste-skill motion.css into the generated CSS asset. Source index.html imports it and the built CSS contains the motion layer."
+  },
+  {
+    "check": "hero-fill",
+    "target": "main#conteudo > section.wrap:nth-of-type(2) \"Sua conversão\"",
+    "reason": "The intro and the real converter are intentional adjacent columns at 1440px; screenshots show separate non-overlapping content. The application form is not a second promotional section."
+  },
+  {
+    "check": "nav",
+    "target": "header.site-header > div.wrap.header-inner > a.brand \"Câmbio Hoje conversor de moedas\"",
+    "reason": "The two lines are the brand name and its category subtitle within one brand link, not wrapped navigation items. Both are visible inside the header."
+  }
+]
